@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenneth James Ocon | Executive Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A1527',
+                        secondary: '#1E3A6E',
+                        accent: '#3B82F6',
+                        dark: '#050B17'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow': '0 0 15px rgba(59, 130, 246, 0.5)'
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                        '3xl': '2rem'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050B17;
+            color: #FFFFFF;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #050B17 0%, #0A1527 50%, #1E3A6E 100%);
+        }
+        
+        .section-divider {
+            height: 150px;
+            background: linear-gradient(180deg, rgba(5,11,23,0) 0%, #050B17 100%);
+        }
+        
+        .hero-image {
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            border-radius: 1rem;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #3B82F6 0%, #1D4ED8 100%);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #3B82F6;
+            border: 4px solid #0A1527;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: -16px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-input {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            border-radius: 0.75rem;
+        }
+        
+        .contact-input:focus {
+            border-color: #3B82F6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3B82F6 0%, #1D4ED8 100%);
+            z-index: 1000;
+            transition: width 0.1s ease;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: #3B82F6;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #050B17;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            border-radius: 0;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: #3B82F6;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .stagger-delay-1 { transition-delay: 0.1s; }
+        .stagger-delay-2 { transition-delay: 0.2s; }
+        .stagger-delay-3 { transition-delay: 0.3s; }
+        .stagger-delay-4 { transition-delay: 0.4s; }
+        .stagger-delay-5 { transition-delay: 0.5s; }
+        
+        .workplace-bg {
+            background-image: 
+                linear-gradient(rgba(5, 11, 23, 0.7), rgba(5, 11, 23, 0.7)),
+                url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Enhanced rounded corners for modern look */
+        .rounded-modern {
+            border-radius: 1.25rem;
+        }
+
+        .rounded-modern-lg {
+            border-radius: 1.5rem;
+        }
+
+        .rounded-modern-xl {
+            border-radius: 2rem;
+        }
+
+        .btn-rounded {
+            border-radius: 2rem;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-spinner mb-4"></div>
+        <h2 class="text-xl font-display text-white">Loading Portfolio...</h2>
+    </div>
+    
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 bg-dark bg-opacity-90 backdrop-blur-md z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-l font-display font text-white">Collaboration Within Reach</a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <nav class="flex items-center space-x-8">
+                        <a href="#home" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">Home</a>
+                        <a href="#about" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">About</a>
+                        <a href="#services" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">Services</a>
+                        <a href="#contact" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">Contact</a>
+                    </nav>
+                </div>
+                
+                <button class="md:hidden text-white focus:outline-none" id="mobileMenuButton">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden bg-dark absolute w-full left-0 top-full py-4 px-6 shadow-lg hidden rounded-b-2xl" id="mobileMenu">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">Home</a>
+                <a href="#about" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">About</a>
+                <a href="#services" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">Services</a>
+                <a href="#contact" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">Contact</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="workplace-bg absolute inset-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-dark to-transparent"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center animate-on-scroll">
+                <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
+                    <span class="text-white">Kenneth James Ocon</span>
+                    <span class="text-accent block mt-2">Executive Assistant</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Detail-oriented and reliable Administrative Assistant with hands-on experience supporting daily office operations.
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#contact" class="bg-accent hover:bg-blue-500 text-white font-medium py-3 px-8 btn-rounded transition-all duration-300 shadow-lg hover:shadow-glow">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 flex justify-center pb-8 animate-on-scroll stagger-delay-1">
+            <a href="#about" class="text-white animate-bounce">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 gradient-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6 rounded-full"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    A dedicated professional with experience in administrative support, project coordination, and business administration.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-on-scroll">
+                    <div class="rounded-modern-xl overflow-hidden">
+                        <div class="animate-on-scroll">
+    <!-- Larger profile container with elegant proportions -->
+    <div class="relative w-full max-w-[320px] h-[400px] mx-auto rounded-[2rem] border border-white border-opacity-10 shadow-2xl overflow-hidden group transition-all duration-300 hover:shadow-[0_25px_50px_-12px_rgba(59,130,246,0.25)]">
+        <!-- High-resolution profile image -->
+        <img src="https://www.dropbox.com/scl/fi/1iw4krvfgznbpe2czc55t/ChatGPT-Image-May-21-2025-05_43_47-PM.png?rlkey=k2zmb8dp8vmbe02wepdv6qd75&st=b0cwx4j7&raw=1" 
+             alt="Kenneth James Ocon - Executive Assistant"
+             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+             loading="lazy">
+    </div>
+</div>
+                    </div>
+                </div>
+        
+                <div class="animate-on-scroll stagger-delay-1">
+                    <h3 class="text-2xl font-display font-bold mb-6">Professional Profile</h3>
+                    
+                    <p class="text-gray-300 mb-6">
+                        Detail-oriented and reliable Administrative Assistant with hands-on experience supporting daily office operations in an educational setting. 
+                        Proficient in managing schedules, maintaining records, and communicating effectively with staff and students.
+                    </p>
+                    
+                    <p class="text-gray-300 mb-8">
+                        Adept at multitasking in fast-paced environments, preserving confidentiality, and delivering high-quality administrative support. 
+                        Committed to contributing to a well-organized and efficient workplace through strong organizational, time management, and problem-solving skills.
+                    </p>
+                    
+                    <!-- Core Competencies Section -->
+<div class="mb-8">
+    <h4 class="text-lg font-bold mb-4 text-white">Core Competencies</h4>
+    
+    <div class="space-y-4">
+        <!-- Administrative Support -->
+        <div class="skill-item" data-percent="95" data-animated="false">
+            <div class="flex justify-between mb-1">
+                <span class="text-sm font-medium text-gray-300">Administrative Support</span>
+                <span class="text-sm font-medium text-gray-300 skill-percent">70%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress bg-gradient-to-r from-blue-300 to-blue-400" style="width: 70%"></div>
+            </div>
+        </div>
+        
+        <!-- Calendar Management -->
+        <div class="skill-item" data-percent="90" data-animated="false">
+            <div class="flex justify-between mb-1">
+                <span class="text-sm font-medium text-gray-300">Calendar Management</span>
+                <span class="text-sm font-medium text-gray-300 skill-percent">70%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress bg-gradient-to-r from-blue-300 to-blue-400" style="width: 70%"></div>
+            </div>
+        </div>
+        
+        <!-- Communication -->
+        <div class="skill-item" data-percent="85" data-animated="false">
+            <div class="flex justify-between mb-1">
+                <span class="text-sm font-medium text-gray-300">Communication</span>
+                <span class="text-sm font-medium text-gray-300 skill-percent">70%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress bg-gradient-to-r from-blue-300 to-blue-400" style="width: 70%"></div>
+            </div>
+        </div>
+        
+        <!-- Tech Proficiency -->
+        <div class="skill-item" data-percent="88" data-animated="false">
+            <div class="flex justify-between mb-1">
+                <span class="text-sm font-medium text-gray-300">Tech Proficiency</span>
+                <span class="text-sm font-medium text-gray-300 skill-percent">70%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress bg-gradient-to-r from-blue-300 to-blue-400" style="width: 70%"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function animateSkills() {
+        const skillItems = document.querySelectorAll('.skill-item:not([data-animated="true"])');
+        
+        skillItems.forEach(item => {
+            const percent = parseInt(item.getAttribute('data-percent'));
+            const progressBar = item.querySelector('.skill-progress');
+            const percentElement = item.querySelector('.skill-percent');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animate from 70% to target percentage
+                        let start = 70;
+                        const duration = 1200;
+                        const startTime = Date.now();
+                        
+                        const animate = () => {
+                            const elapsed = Date.now() - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const current = start + (percent - start) * progress;
+                            
+                            progressBar.style.width = `${current}%`;
+                            percentElement.textContent = `${Math.round(current)}%`;
+                            
+                            if (progress < 1) {
+                                requestAnimationFrame(animate);
+                            } else {
+                                item.setAttribute('data-animated', 'true');
+                            }
+                        };
+                        
+                        animate();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 }); // Triggers when 30% visible
+
+            observer.observe(item);
+        });
+    }
+
+    // Run on scroll (will only trigger once per skill)
+    window.addEventListener('scroll', animateSkills);
+    
+    // Also check on page load in case section is already visible
+    document.addEventListener('DOMContentLoaded', animateSkills);
+</script>
+                    
+                   
+                        <!-- Replace your current resume link with this: -->
+<a href="https://www.dropbox.com/scl/fi/1y9x07i9qkkna68lo0uo9/Kenneth-James-Ocon-Resume.pdf?rlkey=0fuqvjtj4zidmkxgk2ua1s0pu&st=qhd8ob8c&dl=1" 
+   class="inline-flex items-center bg-accent hover:bg-blue-500 text-white font-medium py-2 px-6 rounded-full transition-colors duration-300 shadow-lg hover:shadow-glow"
+   download="Kenneth-James-Ocon-Resume.pdf">
+    Download Resume
+    <i class="fas fa-download ml-2"></i>
+</a>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Professional Experience</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6 rounded-full"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    My career journey and the valuable experiences I've gained along the way.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto relative timeline animate-on-scroll">
+                <!-- Experience Item 1 -->
+                <div class="relative pl-8 pb-12 timeline-item">
+                    <div class="bg-white bg-opacity-5 rounded-xl p-6 backdrop-blur-sm border border-white border-opacity-10 card-hover">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-white">Office Administrative Assistant (Intern)</h3>
+                            <span class="text-sm bg-accent text-white px-3 py-1 rounded-full">Feb 2023 - Jun 2023</span>
+                        </div>
+                        <h4 class="text-accent font-medium mb-4">New Cortez Elementary School, New Corella, Davao del Norte</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Coordinated over 50 daily emails and front-desk inquiries while managing 100+ appointments and meetings, reducing scheduling conflicts by 25% through effective use of Google Workspace and Microsoft Office.</li>
+                            <li>Maintained confidential records for 500+ students and staff, demonstrating precision in data management and strong organizational skills essential for executive-level support.</li>
+                            <li>Optimized operational workflows by streamlining inventory tracking and supply ordering, cutting shortages by 15% and improving turnaround time on requests by 30%.</li>
+                            <li>Assisted cross-functional teams with administrative tasks, boosting project speed by 20% and supporting remote collaboration via Zoom and shared drives.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section with Original Box Styling + 3D Hover -->
+<!-- Services Section with Background Images -->
+<section id="services" class="py-20 gradient-bg">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">My Services</h2>
+            <div class="w-20 h-1 bg-accent mx-auto mb-6 rounded-full"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Comprehensive administrative support services tailored to meet your business needs.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service 1 - Administrative Support -->
+            <div class="service-card animate-on-scroll relative overflow-hidden rounded-xl group">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="relative z-10 bg-black bg-opacity-50 p-8 h-full backdrop-blur-sm transition-all duration-300 group-hover:bg-opacity-60">
+                    <div class="w-14 h-14 bg-accent bg-opacity-20 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-tasks text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Administrative Support</h3>
+                    <p class="text-gray-300">
+                        Proficient in managing documents, data entry, travel arrangements, and providing reliable day-to-day support.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Service 2 - Calendar Management -->
+            <div class="service-card animate-on-scroll relative overflow-hidden rounded-xl group stagger-delay-1">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="relative z-10 bg-black bg-opacity-50 p-8 h-full backdrop-blur-sm transition-all duration-300 group-hover:bg-opacity-60">
+                    <div class="w-14 h-14 bg-accent bg-opacity-20 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar-alt text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Calendar Management</h3>
+                    <p class="text-gray-300">
+                        Skilled in organizing schedules, managing inboxes, coordinating meetings, and minimizing scheduling conflicts.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Service 3 - Communication -->
+            <div class="service-card animate-on-scroll relative overflow-hidden rounded-xl group stagger-delay-2">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="relative z-10 bg-black bg-opacity-50 p-8 h-full backdrop-blur-sm transition-all duration-300 group-hover:bg-opacity-60">
+                    <div class="w-14 h-14 bg-accent bg-opacity-20 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-comments text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Communication</h3>
+                    <p class="text-gray-300">
+                        Effective in handling internal and external correspondence, preparing meeting materials, and ensuring timely updates.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Service 4 - Tech Proficiency -->
+            <div class="service-card animate-on-scroll relative overflow-hidden rounded-xl group">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="relative z-10 bg-black bg-opacity-50 p-8 h-full backdrop-blur-sm transition-all duration-300 group-hover:bg-opacity-60">
+                    <div class="w-14 h-14 bg-accent bg-opacity-20 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Tech Proficiency</h3>
+                    <p class="text-gray-300">
+                        Skilled in using tools like Google Workspace, Microsoft Office, Zoom, and CRM platforms.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Service 5 - Document Preparation -->
+            <div class="service-card animate-on-scroll relative overflow-hidden rounded-xl group stagger-delay-1">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="relative z-10 bg-black bg-opacity-50 p-8 h-full backdrop-blur-sm transition-all duration-300 group-hover:bg-opacity-60">
+                    <div class="w-14 h-14 bg-accent bg-opacity-20 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-file-alt text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Document Preparation</h3>
+                    <p class="text-gray-300">
+                        Professional creation and formatting of reports, presentations, and confidential business documents.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Service 6 - Project Support -->
+            <div class="service-card animate-on-scroll relative overflow-hidden rounded-xl group stagger-delay-2">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="relative z-10 bg-black bg-opacity-50 p-8 h-full backdrop-blur-sm transition-all duration-300 group-hover:bg-opacity-60">
+                    <div class="w-14 h-14 bg-accent bg-opacity-20 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-project-diagram text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Project Support</h3>
+                    <p class="text-gray-300">
+                        Comprehensive assistance with special projects, research, and executive initiatives.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .service-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.4;
+        transition: opacity 0.3s ease;
+    }
+    
+    .service-card:hover .service-image {
+        opacity: 0.3;
+    }
+    
+    .service-card {
+        min-height: 300px;
+        perspective: 1000px;
+    }
+</style>
+
+<style>
+    /* 3D Hover Effect */
+    .service-card {
+        perspective: 1000px;
+    }
+    
+    .card-content {
+        transform: translateZ(0);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    
+    .service-card:hover .card-content {
+        transform: translateZ(15px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 
+                    0 5px 10px -5px rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Original Card Hover Effect (Retained) */
+    .card-hover:hover {
+        background: rgba(255, 255, 255, 0.08);
+    }
+</style>
+    
+    <!-- Education & Certifications -->
+    <section class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Education & Certifications</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6 rounded-full"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    My academic background and professional certifications.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto relative timeline animate-on-scroll">
+                <!-- Education Item 1 -->
+                <div class="relative pl-8 pb-12 timeline-item">
+                    <div class="bg-white bg-opacity-5 rounded-xl p-6 backdrop-blur-sm border border-white border-opacity-10 card-hover">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-white">BS Business Administration, Marketing Management</h3>
+                            <span class="text-sm bg-accent text-white px-3 py-1 rounded-full">2023 - 2027</span>
+                        </div>
+                        <h4 class="text-accent font-medium mb-4">University of Mindanao - Tagum Campus, Tagum City, Davao del Norte</h4>
+                    </div>
+                </div>
+                
+                <!-- Certification Item 1 -->
+                <div class="relative pl-8 timeline-item">
+                    <div class="bg-white bg-opacity-5 rounded-xl p-6 backdrop-blur-sm border border-white border-opacity-10 card-hover">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-white">Career Essentials in Administrative Assistance</h3>
+                            <span class="text-sm bg-accent text-white px-3 py-1 rounded-full">May 2025</span>
+                        </div>
+                        <h4 class="text-accent font-medium mb-4">Microsoft and LinkedIn</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6 rounded-full"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Interested in working together? Reach out and let's discuss how I can support your team.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="animate-on-scroll">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2">Your Name</label>
+                            <input type="text" id="name" class="contact-input w-full py-3 px-4 focus:outline-none focus:ring-2 focus:ring-accent">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2">Email Address</label>
+                            <input type="email" id="email" class="contact-input w-full py-3 px-4 focus:outline-none focus:ring-2 focus:ring-accent">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-300 mb-2">Subject</label>
+                            <input type="text" id="subject" class="contact-input w-full py-3 px-4 focus:outline-none focus:ring-2 focus:ring-accent">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="contact-input w-full py-3 px-4 focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
+                        </div>
+                        
+                        <button type="button" id="sendMessageBtn" 
+                           class="inline-block w-full bg-accent hover:bg-blue-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-glow text-center btn-rounded">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="animate-on-scroll stagger-delay-1">
+                    <div class="bg-white bg-opacity-5 rounded-xl p-8 backdrop-blur-sm border border-white border-opacity-10 h-full">
+                        <h3 class="text-2xl font-display font-bold mb-6 text-white">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-accent text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white mb-1">Email</h4>
+                                    <a href="mailto:kennethjamesocon3@gmail.com" class="text-gray-300 hover:text-accent transition-colors">kennethjamesocon3@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone-alt text-accent text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white mb-1">Phone</h4>
+                                    <a href="tel:+639555132871" class="text-gray-300 hover:text-accent transition-colors">+63 955 513 2871</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-accent text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white mb-1">Location</h4>
+                                    <p class="text-gray-300">Tagum City, Davao del Norte, Philippines</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fab fa-linkedin text-accent text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white mb-1">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/kennethjamesocon" target="_blank" class="text-gray-300 hover:text-accent transition-colors">linkedin.com/in/kennethjamesocon</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-briefcase text-accent text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white mb-1">Upwork</h4>
+                                    <a href="https://upwork.com/freelancers/kennethjameso" target="_blank" class="text-gray-300 hover:text-accent transition-colors">upwork.com/freelancers/kennethjameso</a>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-6">
+                                <h4 class="text-lg font-bold text-white mb-4">Connect With Me</h4>
+                                <div class="flex space-x-4">
+                                    <a href="https://www.linkedin.com/in/kennethjamesocon" target="_blank" class="w-12 h-12 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg flex items-center justify-center transition-colors">
+                                        <i class="fab fa-linkedin-in text-white text-xl"></i>
+                                    </a>
+                                    <a href="https://upwork.com/freelancers/kennethjameso" target="_blank" class="w-12 h-12 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg flex items-center justify-center transition-colors">
+                                        <i class="fas fa-briefcase text-white text-xl"></i>
+                                    </a>
+                                    <a href="mailto:kennethjamesocon3@gmail.com" target="_blank" class="w-12 h-12 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg flex items-center justify-center transition-colors">
+                                        <i class="fas fa-envelope text-white text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark py-16 border-t border-white border-opacity-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="text-xl font-display font-bold text-white mb-6">Kenneth James Ocon</h3>
+                    <p class="text-gray-400 mb-4">
+                        Executive Assistant providing comprehensive administrative support with a focus on efficiency and attention to detail.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/kennethjamesocon" target="_blank" class="w-10 h-10 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="https://upwork.com/freelancers/kennethjameso" target="_blank" class="w-10 h-10 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-full flex items-center justify-center transition-colors">
+<i class="fas fa-briefcase text-white"></i>
+</a>
+<a href="mailto:kennethjamesocon3@gmail.com" class="w-10 h-10 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-full flex items-center justify-center transition-colors">
+<i class="fas fa-envelope text-white"></i>
+</a>
+</div>
+</div>
+<div>
+                <h3 class="text-lg font-bold text-white mb-6">Quick Links</h3>
+                <ul class="space-y-3">
+                    <li><a href="#home" class="text-gray-400 hover:text-accent transition-colors flex items-center">
+                        <i class="fas fa-chevron-right text-xs text-accent mr-2"></i> Home
+                    </a></li>
+                    <li><a href="#about" class="text-gray-400 hover:text-accent transition-colors flex items-center">
+                        <i class="fas fa-chevron-right text-xs text-accent mr-2"></i> About
+                    </a></li>
+                    <li><a href="#services" class="text-gray-400 hover:text-accent transition-colors flex items-center">
+                        <i class="fas fa-chevron-right text-xs text-accent mr-2"></i> Services
+                    </a></li>
+                    <li><a href="#contact" class="text-gray-400 hover:text-accent transition-colors flex items-center">
+                        <i class="fas fa-chevron-right text-xs text-accent mr-2"></i> Contact
+                    </a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-bold text-white mb-6">Services</h3>
+                <ul class="space-y-3">
+                    <li class="text-gray-400 flex items-center">
+                        <i class="fas fa-check-circle text-xs text-accent mr-2"></i> Administrative Support
+                    </li>
+                    <li class="text-gray-400 flex items-center">
+                        <i class="fas fa-check-circle text-xs text-accent mr-2"></i> Calendar Management
+                    </li>
+                    <li class="text-gray-400 flex items-center">
+                        <i class="fas fa-check-circle text-xs text-accent mr-2"></i> Communication
+                    </li>
+                    <li class="text-gray-400 flex items-center">
+                        <i class="fas fa-check-circle text-xs text-accent mr-2"></i> Tech Proficiency
+                    </li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-bold text-white mb-6">Contact</h3>
+                <ul class="space-y-3">
+                    <li class="text-gray-400 flex items-start">
+                        <i class="fas fa-map-marker-alt text-accent mt-1 mr-3 text-sm"></i>
+                        <span>Tagum City, Davao del Norte, Philippines</span>
+                    </li>
+                    <li class="text-gray-400 flex items-start">
+                        <i class="fas fa-envelope text-accent mt-1 mr-3 text-sm"></i>
+                        <a href="mailto:kennethjamesocon3@gmail.com" class="hover:text-accent transition-colors">kennethjamesocon3@gmail.com</a>
+                    </li>
+                    <li class="text-gray-400 flex items-start">
+                        <i class="fas fa-phone-alt text-accent mt-1 mr-3 text-sm"></i>
+                        <a href="tel:+639555132871" class="hover:text-accent transition-colors">+63 955 513 2871</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="pt-8 border-t border-white border-opacity-10 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                &copy; 2023 Kenneth James Ocon. All rights reserved.
+            </p>
+            
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors text-sm">Privacy Policy</a>
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors text-sm">Terms of Service</a>
+                <a href="#" class="text-gray-500 hover:text-accent transition-colors text-sm">Cookies</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Hide loading screen after 2 seconds
+        setTimeout(function() {
+            document.querySelector('.loading-screen').classList.add('fade-in');
+            setTimeout(function() {
+                document.querySelector('.loading-screen').style.display = 'none';
+            }, 500);
+        }, 2000);
+        
+        // Scroll progress bar
+        const scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = scrollPercentage + '%';
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Scroll animations
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Make the Contact Me button scroll to contact section
+        const contactMeBtn = document.querySelector('a[href="#contact"]');
+        if (contactMeBtn) {
+            contactMeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    window.scrollTo({
+                        top: contactSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+
+        // Make the Send Message button work with Gmail in a new tab
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+        if (sendMessageBtn) {
+            sendMessageBtn.addEventListener('click', function(e) {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                if (!name || !email || !message) {
+                    e.preventDefault();
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                // Construct the mailto URL with the form data
+                const mailtoUrl = `mailto:kennethjamesocon3@gmail.com?subject=${encodeURIComponent(subject || 'Contact Request')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+                
+                // Open in new tab
+                window.open(mailtoUrl, '_blank');
+                
+                // Reset form
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('subject').value = '';
+                document.getElementById('message').value = '';
+                
+                // Show success message
+                alert('Thank you for your message! I will get back to you soon.');
+            });
+        }
+
+        // Add animation to skill bars when they come into view
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const skillBarObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.style.width;
+                    entry.target.style.width = '0';
+                    setTimeout(() => {
+                        entry.target.style.width = width;
+                    }, 100);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        skillBars.forEach(bar => {
+            skillBarObserver.observe(bar);
+        });
+    });
+</script>
+</body> </html> ```
