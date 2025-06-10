@@ -1,0 +1,9 @@
+/* In your main CSS file, e.g., src/input.css or directly in a <style> tag in your HTML <head> */
+@font-face {
+    font-family: 'Amsterdam Four'; /* This is the name you'll use in your CSS */
+    src: url('/path/to/fonts/AmsterdamFour.woff2') format('woff2'), /* Adjust path as needed */
+         url('/path/to/fonts/AmsterdamFour.woff') format('woff');   /* Add other formats for wider support */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Helps with font loading performance */
+}

@@ -1,0 +1,8 @@
+<!-- Add this CSS to your stylesheet or inside a <style> block -->
+<style>
+  .nav-link-hover-gradient:hover {
+    background: linear-gradient(to right, #93c5fd, #ffffff, #93c5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>

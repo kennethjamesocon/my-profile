@@ -149,33 +149,6 @@
             transition: width 0.1s ease;
         }
         
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background-color: #3B82F6;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
         
         .animate-on-scroll {
             opacity: 0;
@@ -273,68 +246,77 @@
         <i class="fas fa-arrow-up"></i>
     </div>
     
-    <!-- Navigation -->
-    <header class="fixed top-0 left-0 right-0 bg-dark bg-opacity-90 backdrop-blur-md z-50 shadow-md">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="#" class="text-l font-display font text-white">Collaboration Within Reach</a>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <nav class="flex items-center space-x-8">
-                        <a href="#home" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">Home</a>
-                        <a href="#about" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">About</a>
-                        <a href="#services" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">Services</a>
-                        <a href="#contact" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">Contact</a>
-                    </nav>
-                </div>
-                
-                <button class="md:hidden text-white focus:outline-none" id="mobileMenuButton">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
+   <header class="fixed top-0 left-0 right-0 bg-dark bg-opacity-70 backdrop-blur-md z-50 shadow-md border-b border-white/10">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+
+      <!-- Gradient Title with Hero Font -->
+      <a href="#"
+         class="font-display font-bold text-xl md:text-2xl bg-gradient-to-r from-blue-300 via-white to-blue-300 bg-clip-text text-transparent">
+        Collaboration Within Reach
+      </a>
+
+      <!-- Desktop Navigation Inside Glassy Card with Margin -->
+      <div class="hidden md:flex items-center">
+        <div class="ml-4 backdrop-blur-lg bg-white/5 border border-blue-300/40 rounded-2xl shadow-xl px-6 py-3">
+          <nav class="flex items-center space-x-6">
+            <a href="#home" class="text-white hover:text-sky-400 text-sm font-medium uppercase tracking-wider">Home</a>
+            <a href="#about" class="text-white hover:text-sky-400 text-sm font-medium uppercase tracking-wider">About</a>
+            <a href="#services" class="text-white hover:text-sky-400 text-sm font-medium uppercase tracking-wider">Services</a>
+            <a href="#contact" class="text-white hover:text-sky-400 text-sm font-medium uppercase tracking-wider">Contact</a>
+          </nav>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div class="md:hidden bg-dark absolute w-full left-0 top-full py-4 px-6 shadow-lg hidden rounded-b-2xl" id="mobileMenu">
-            <div class="flex flex-col space-y-4">
-                <a href="#home" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">Home</a>
-                <a href="#about" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">About</a>
-                <a href="#services" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">Services</a>
-                <a href="#contact" class="nav-link text-white hover:text-accent text-sm font-medium uppercase tracking-wider">Contact</a>
-            </div>
-        </div>
-    </header>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-white focus:outline-none" id="mobileMenuButton">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Glassy Dropdown -->
+  <div class="md:hidden mt-2 backdrop-blur-lg bg-white/5 border-t border-blue-300/40 rounded-b-2xl px-6 py-4 shadow-xl hidden" id="mobileMenu">
+    <div class="flex flex-col space-y-4">
+      <a href="#home" class="text-white hover:text-sky-400 text-sm font-medium uppercase tracking-wider">Home</a>
+      <a href="#about" class="text-white hover:text-sky-400 text-sm font-medium uppercase tracking-wider">About</a>
+      <a href="#services" class="text-white hover:text-sky-400 text-sm font-medium uppercase tracking-wider">Services</a>
+      <a href="#contact" class="text-white hover:text-sky-400 text-sm font-medium uppercase tracking-wider">Contact</a>
+    </div>
+  </div>
+</header>
+
     
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-        <div class="workplace-bg absolute inset-0"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-dark to-transparent"></div>
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-4xl mx-auto text-center animate-on-scroll">
-                <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
-                    <span class="text-white">Kenneth James Ocon</span>
-                    <span class="text-accent block mt-2 text-4xl"> Proactive Executive Assistant</span>
-                </h1>
-                
-                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                    Detail-oriented and reliable Administrative Assistant with hands-on experience supporting daily office operations.
-                </p>
-                
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#contact" class="bg-accent hover:bg-blue-500 text-white font-medium py-3 px-8 btn-rounded transition-all duration-300 shadow-lg hover:shadow-glow">
-                        Contact Me
-                    </a>
-                </div>
+   <!-- Hero Section -->
+<section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <div class="workplace-bg absolute inset-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-dark to-transparent"></div>
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl mx-auto text-center animate-on-scroll">
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
+                <span class="text-white">Kenneth James Ocon</span>
+                <span class="block mt-2 text-4xl text-sky-600">Proactive Executive Assistant</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Detail-oriented and reliable Administrative Assistant with hands-on experience supporting daily office operations.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#contact" class="bg-accent hover:bg-blue-500 text-white font-medium py-3 px-8 btn-rounded transition-all duration-300 shadow-lg hover:shadow-glow">
+                    Contact Me
+                </a>
             </div>
         </div>
-        
-        <div class="absolute bottom-0 left-0 right-0 flex justify-center pb-8 animate-on-scroll stagger-delay-1">
-            <a href="#about" class="text-white animate-bounce">
-                <i class="fas fa-chevron-down text-2xl"></i>
-            </a>
-        </div>
-    </section>
+    </div>
+    
+    <div class="absolute bottom-0 left-0 right-0 flex justify-center pb-8 animate-on-scroll stagger-delay-1">
+        <a href="#about" class="text-white animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </a>
+    </div>
+</section>
+
     
     <!-- About Section -->
     <section id="about" class="py-20 gradient-bg">
@@ -458,7 +440,7 @@
                             <h3 class="text-xl font-bold text-white">Office Administrative Assistant (Intern)</h3>
                             <span class="text-sm bg-accent text-white px-3 py-1 rounded-full">Feb 2023 - Jun 2023</span>
                         </div>
-                        <h4 class="text-accent font-medium mb-4">New Cortez Elementary School, New Corella, Davao del Norte</h4>
+                        <h4 class="text-accent font-medium mb-4">New Cortez Elementary School, New Corella, Davao del Norte 8104</h4>
                         <ul class="list-disc pl-5 space-y-2 text-gray-300 text-justify">
                             <li>Coordinated over 50 daily emails and front-desk inquiries while managing 100+ appointments and meetings, reducing scheduling conflicts by 25% through effective use of Google Workspace and Microsoft Office.</li>
                             <li>Maintained confidential records for 500+ students and staff, demonstrating precision in data management and strong organizational skills essential for executive-level support.</li>
@@ -633,11 +615,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Email Clients -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/512px-Gmail_icon_%282020%29.svg.png" class="w-full h-full object-cover blur-md" alt="Gmail">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <div class="flex gap-4 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/512px-Gmail_icon_%282020%29.svg.png" class="h-16" alt="Gmail">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg/512px-Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg.png" class="h-16 rounded-lg" alt="Outlook">
-                        </div>
                         <h3 class="text-lg font-bold text-white mb-2">Gmail, Microsoft Outlook</h3>
                         <p class="text-gray-300 text-sm">
                             Managed professional emails, client correspondence, and meeting invites.
@@ -647,11 +628,10 @@
 
                 <!-- Cloud Storage -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/512px-Google_Drive_icon_%282020%29.svg.png" class="w-full h-full object-cover blur-md" alt="Google Drive">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <div class="flex gap-4 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/512px-Google_Drive_icon_%282020%29.svg.png" class="h-16" alt="Google Drive">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Dropbox_Icon.svg/512px-Dropbox_Icon.svg.png" class="h-16 rounded-lg" alt="Dropbox">
-                        </div>
                         <h3 class="text-lg font-bold text-white mb-2">Google Drive, Dropbox</h3>
                         <p class="text-gray-300 text-sm">
                             Organized and shared digital files, including documents, spreadsheets, and media assets.
@@ -661,11 +641,10 @@
 
                 <!-- Spreadsheets -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Sheets_2020_Logo.svg/512px-Google_Sheets_2020_Logo.svg.png" class="w-full h-full object-cover blur-md" alt="Google Sheets">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <div class="flex gap-4 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Sheets_2020_Logo.svg/512px-Google_Sheets_2020_Logo.svg.png" class="h-16 rounded-lg" alt="Google Sheets">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg/512px-Microsoft_Office_Excel_%282019%E2%80%93present%29.svg.png" class="h-16 rounded-lg" alt="Excel">
-                        </div>
                         <h3 class="text-lg font-bold text-white mb-2">Google Sheets, Excel</h3>
                         <p class="text-gray-300 text-sm">
                             Built trackers, handled basic reporting, and supported data entry tasks.
@@ -675,11 +654,10 @@
 
                 <!-- Calendar & Teams -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Calendar_icon_%282020%29.svg/512px-Google_Calendar_icon_%282020%29.svg.png" class="w-full h-full object-cover blur-md" alt="Google Calendar">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <div class="flex gap-4 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Calendar_icon_%282020%29.svg/512px-Google_Calendar_icon_%282020%29.svg.png" class="h-16 rounded-lg" alt="Google Calendar">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/512px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png" class="h-16 rounded-lg" alt="Teams">
-                        </div>
                         <h3 class="text-lg font-bold text-white mb-2">Google Calendar, Teams</h3>
                         <p class="text-gray-300 text-sm">
                             Scheduled meetings, coordinated project timelines, and participated in planning sessions.
@@ -689,11 +667,10 @@
 
                 <!-- Office Suite -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg/512px-Microsoft_Office_Word_%282019%E2%80%93present%29.svg.png" class="w-full h-full object-cover blur-md" alt="Word">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <div class="flex gap-4 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg/512px-Microsoft_Office_Word_%282019%E2%80%93present%29.svg.png" class="h-16 rounded-lg" alt="Word">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg/512px-Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg.png" class="h-16 rounded-lg" alt="PowerPoint">
-                        </div>
                         <h3 class="text-lg font-bold text-white mb-2">Word, PowerPoint</h3>
                         <p class="text-gray-300 text-sm">
                             Created structured documents and presentations for internal and client-facing use.
@@ -708,11 +685,10 @@
             <h3 class="text-2xl font-display font-bold mb-6 text-white border-b border-white border-opacity-20 pb-2">AI & Writing Assistance</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" class="w-full h-full object-cover blur-md" alt="ChatGPT">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <div class="flex gap-4 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" class="h-16" alt="ChatGPT">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Gemini_AI_logo.svg/512px-Gemini_AI_logo.svg.png" class="h-16 rounded-lg" alt="Gemini">
-                        </div>
                         <h3 class="text-lg font-bold text-white mb-2">ChatGPT, Gemini</h3>
                         <p class="text-gray-300 text-sm">
                             Drafted content, summarized research, and generated ideas for administrative and marketing materials.
@@ -728,11 +704,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- PM Tools -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://clickup.com/logo.svg" class="w-full h-full object-cover blur-md" alt="ClickUp">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <div class="flex gap-4 mb-4">
-                            <img src="https://clickup.com/logo.svg" class="h-16" alt="ClickUp">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Monday.com_logo.svg/512px-Monday.com_logo.svg.png" class="h-16 rounded-lg" alt="Monday.com">
-                        </div>
                         <h3 class="text-lg font-bold text-white mb-2">ClickUp, Asana, Monday.com</h3>
                         <p class="text-gray-300 text-sm">
                             Assigned tasks, tracked progress, and maintained project timelines.
@@ -742,8 +717,10 @@
 
                 <!-- Notion -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" class="w-full h-full object-cover blur-md" alt="Notion">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" class="h-16 mb-4 rounded-lg" alt="Notion">
                         <h3 class="text-lg font-bold text-white mb-2">Notion</h3>
                         <p class="text-gray-300 text-sm">
                             Created and maintained centralized documentation including SOPs, meeting notes, and internal guides.
@@ -753,8 +730,10 @@
 
                 <!-- Zapier -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://cdn.zapier.com/zapier/images/logos/zapier-logo.png" class="w-full h-full object-cover blur-md" alt="Zapier">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://cdn.zapier.com/zapier/images/logos/zapier-logo.png" class="h-16 mb-4 rounded-lg" alt="Zapier">
                         <h3 class="text-lg font-bold text-white mb-2">Zapier</h3>
                         <p class="text-gray-300 text-sm">
                             Implemented simple automations to reduce manual tasks and improve efficiency.
@@ -770,11 +749,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Video Conferencing -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Google_Meet_icon_%282020%29.svg/512px-Google_Meet_icon_%282020%29.svg.png" class="w-full h-full object-cover blur-md" alt="Google Meet">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <div class="flex gap-4 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Google_Meet_icon_%282020%29.svg/512px-Google_Meet_icon_%282020%29.svg.png" class="h-16 rounded-lg" alt="Google Meet">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/512px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png" class="h-16 rounded-lg" alt="Teams">
-                        </div>
                         <h3 class="text-lg font-bold text-white mb-2">Zoom, Meet, Teams</h3>
                         <p class="text-gray-300 text-sm">
                             Attended team meetings, client calls, and online training sessions.
@@ -784,8 +762,10 @@
 
                 <!-- Zendesk -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Zendesk_logo.svg/512px-Zendesk_logo.svg.png" class="w-full h-full object-cover blur-md" alt="Zendesk">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Zendesk_logo.svg/512px-Zendesk_logo.svg.png" class="h-16 mb-4" alt="Zendesk">
                         <h3 class="text-lg font-bold text-white mb-2">Zendesk</h3>
                         <p class="text-gray-300 text-sm">
                             Assisted in managing customer support tickets, follow-ups, and resolutions with accuracy and professionalism.
@@ -801,8 +781,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- HubSpot -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/HubSpot_Logo.svg/512px-HubSpot_Logo.svg.png" class="w-full h-full object-cover blur-md" alt="HubSpot">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/HubSpot_Logo.svg/512px-HubSpot_Logo.svg.png" class="h-16 mb-4" alt="HubSpot">
                         <h3 class="text-lg font-bold text-white mb-2">HubSpot</h3>
                         <p class="text-gray-300 text-sm">
                             Updated CRM records, tracked interactions, and supported marketing campaign monitoring.
@@ -812,8 +794,10 @@
 
                 <!-- Xero -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Xero_logo.svg/512px-Xero_logo.svg.png" class="w-full h-full object-cover blur-md" alt="Xero">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Xero_logo.svg/512px-Xero_logo.svg.png" class="h-16 mb-4" alt="Xero">
                         <h3 class="text-lg font-bold text-white mb-2">Xero</h3>
                         <p class="text-gray-300 text-sm">
                             Helped organize billing information, prepare invoices, and update financial records.
@@ -823,8 +807,10 @@
 
                 <!-- Analytics -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Google_Analytics_Logo.svg/512px-Google_Analytics_Logo.svg.png" class="w-full h-full object-cover blur-md" alt="Google Analytics">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Google_Analytics_Logo.svg/512px-Google_Analytics_Logo.svg.png" class="h-16 mb-4 rounded-lg" alt="Google Analytics">
                         <h3 class="text-lg font-bold text-white mb-2">Google Analytics</h3>
                         <p class="text-gray-300 text-sm">
                             Reviewed website metrics to inform content strategy and performance reporting.
@@ -834,8 +820,10 @@
 
                 <!-- Calendly -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Calendly_logo.svg/512px-Calendly_logo.svg.png" class="w-full h-full object-cover blur-md" alt="Calendly">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Calendly_logo.svg/512px-Calendly_logo.svg.png" class="h-16 mb-4 rounded-lg" alt="Calendly">
                         <h3 class="text-lg font-bold text-white mb-2">Calendly</h3>
                         <p class="text-gray-300 text-sm">
                             Scheduled appointments and managed calendars across multiple time zones.
@@ -851,8 +839,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Canva -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_icon_2021.svg/512px-Canva_icon_2021.svg.png" class="w-full h-full object-cover blur-md" alt="Canva">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_icon_2021.svg/512px-Canva_icon_2021.svg.png" class="h-16 mb-4" alt="Canva">
                         <h3 class="text-lg font-bold text-white mb-2">Canva</h3>
                         <p class="text-gray-300 text-sm">
                             Designed social media posts, proposals, and branded visuals in line with style guides.
@@ -862,8 +852,10 @@
 
                 <!-- Dropbox -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Dropbox_Icon.svg/512px-Dropbox_Icon.svg.png" class="w-full h-full object-cover blur-md" alt="Dropbox">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Dropbox_Icon.svg/512px-Dropbox_Icon.svg.png" class="h-16 mb-4 rounded-lg" alt="Dropbox">
                         <h3 class="text-lg font-bold text-white mb-2">Dropbox</h3>
                         <p class="text-gray-300 text-sm">
                             Shared large design files and media assets for collaborative reviews and final delivery.
@@ -879,8 +871,10 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <!-- Facebook -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/512px-Facebook_f_logo_%282019%29.svg.png" class="w-full h-full object-cover blur-md" alt="Facebook">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/512px-Facebook_f_logo_%282019%29.svg.png" class="h-16 mb-4" alt="Facebook">
                         <h3 class="text-lg font-bold text-white mb-2">Facebook</h3>
                         <p class="text-gray-300 text-sm">
                             Supported post creation, scheduling, and audience engagement aligned with brand goals.
@@ -890,8 +884,10 @@
                 
                 <!-- Instagram -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/512px-Instagram_logo_2016.svg.png" class="w-full h-full object-cover blur-md" alt="Instagram">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/512px-Instagram_logo_2016.svg.png" class="h-16 mb-4" alt="Instagram">
                         <h3 class="text-lg font-bold text-white mb-2">Instagram</h3>
                         <p class="text-gray-300 text-sm">
                             Supported post creation, scheduling, and audience engagement aligned with brand goals.
@@ -901,8 +897,10 @@
                 
                 <!-- LinkedIn -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/512px-LinkedIn_logo_initials.png" class="w-full h-full object-cover blur-md" alt="LinkedIn">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/512px-LinkedIn_logo_initials.png" class="h-16 mb-4 rounded-lg" alt="LinkedIn">
                         <h3 class="text-lg font-bold text-white mb-2">LinkedIn</h3>
                         <p class="text-gray-300 text-sm">
                             Supported post creation, scheduling, and audience engagement aligned with brand goals.
@@ -912,8 +910,10 @@
                 
                 <!-- TikTok -->
                 <div class="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 card-hover relative overflow-hidden group">
+                    <div class="absolute inset-0 z-0 opacity-20">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/TikTok_logo.svg/512px-TikTok_logo.svg.png" class="w-full h-full object-cover blur-md" alt="TikTok">
+                    </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/TikTok_logo.svg/512px-TikTok_logo.svg.png" class="h-16 mb-4 rounded-lg" alt="TikTok">
                         <h3 class="text-lg font-bold text-white mb-2">TikTok</h3>
                         <p class="text-gray-300 text-sm">
                             Supported post creation, scheduling, and audience engagement aligned with brand goals.
@@ -926,11 +926,11 @@
 </section>
 
     <!-- Education & Certifications -->
-<section class="py-20 bg-dark">
+<section class="py-12 bg-dark">
     <div class="container mx-auto px-6">
-        <div class="text-center mb-16 animate-on-scroll">
-            <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Education & Certification</h2>
-            <div class="w-20 h-1 bg-accent mx-auto mb-6 rounded-full"></div>
+        <div class="text-center mb-10 animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-display font-bold mb-3">Education & Certification</h2>
+            <div class="w-20 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
             <p class="text-gray-400 max-w-2xl mx-auto">
                 My academic background and professional certification.
             </p>
@@ -938,15 +938,15 @@
         
         <div class="max-w-3xl mx-auto relative timeline animate-on-scroll">
             <!-- Education Item 1 -->
-            <div class="relative pl-8 pb-12 timeline-item">
-                <div class="bg-white bg-opacity-5 rounded-xl p-6 backdrop-blur-sm border border-white border-opacity-10 card-hover">
-                    <div class="flex justify-between items-start mb-2">
+            <div class="relative pl-8 pb-8 timeline-item">
+                <div class="bg-white bg-opacity-5 rounded-xl p-5 backdrop-blur-sm border border-white border-opacity-10 card-hover">
+                    <div class="flex justify-between items-start mb-1.5">
                         <h3 class="text-xl font-bold text-white">BS Business Administration, Marketing Management</h3>
-                        <span class="text-sm bg-accent text-white px-3 py-1 rounded-full">2023 - 2027</span>
+                        <span class="text-sm bg-accent text-white px-3 py-0.5 rounded-full">2023 - 2027</span>
                     </div>
-                    <h4 class="text-accent font-medium mb-4">University of Mindanao - Tagum Campus, Tagum City 8100, Davao del Norte</h4>
+                    <h4 class="text-accent font-medium mb-3">University of Mindanao - Tagum Campus, Tagum City, Davao del Norte 8100</h4>
                     
-                    <div class="text-gray-300 mt-4 space-y-4 text-justify">
+                    <div class="text-gray-300 mt-3 space-y-3 text-justify">
                         <p>
                             Currently pursuing my degree in Business Administration with a major in Marketing Management, 
                             I am building a strong foundation in core business areas such as management, finance, operations, 
@@ -955,8 +955,7 @@
                         </p>
                         
                         <p>
-                            Through this program, I have
-ve developed transferable skills in problem-solving, communication, 
+                            Through this program, I have developed transferable skills in problem-solving, communication, 
                             decision-making, and teamwork. I've also learned how to analyze data, understand business systems, 
                             and support company goals through well-informed strategies and efficient processes.
                         </p>
@@ -969,16 +968,18 @@ ve developed transferable skills in problem-solving, communication,
                     </div>
                 </div>
             </div>
-             <div class="relative pl-8 pb-12 timeline-item">
-                <div class="bg-white bg-opacity-5 rounded-xl p-6 backdrop-blur-sm border border-white border-opacity-10 card-hover">
-                    <div class="flex justify-between items-start mb-2">
+            
+            <!-- Education Item 2 -->
+            <div class="relative pl-8 pb-8 timeline-item">
+                <div class="bg-white bg-opacity-5 rounded-xl p-5 backdrop-blur-sm border border-white border-opacity-10 card-hover">
+                    <div class="flex justify-between items-start mb-1.5">
                         <h3 class="text-xl font-bold text-white">Humanities and Social Sciences – Senior High School</h3>
-                        <span class="text-sm bg-accent text-white px-3 py-1 rounded-full">2023</span>
+                        <span class="text-sm bg-accent text-white px-3 py-0.5 rounded-full">2023</span>
                     </div>
-                    <h4 class="text-accent font-medium mb-4">New Corella National High School — New Corella 8104, Davao del Norte</h4>
-                    <h4 class="text-accent font-medium mb-4">Academic Distinction: <em>With Honors</em></h4>
+                    <h4 class="text-accent font-medium mb-3">New Corella National High School — New Corella, Davao del Norte 8104</h4>
+                    <h4 class="text-accent font-medium mb-3">Academic Distinction: <em>With Honors</em></h4>
                     
-                    <div class="text-gray-300 mt-4 space-y-4 text-justify">
+                    <div class="text-gray-300 mt-3 space-y-3 text-justify">
                         <p>
                             Graduated with a focus on Humanities and Social Sciences, I developed a strong understanding of human behavior,
                             societal structures, and cultural dynamics. This background has equipped me with critical thinking skills. I consistently achieved high academic performance,
@@ -987,16 +988,17 @@ ve developed transferable skills in problem-solving, communication,
                     </div>
                 </div>
             </div>
+            
             <!-- Certification Item 1 -->
-            <div class="relative pl-8 timeline-item">
-                <div class="bg-white bg-opacity-5 rounded-xl p-6 backdrop-blur-sm border border-white border-opacity-10 card-hover">
-                    <div class="flex justify-between items-start mb-2">
+            <div class="relative pl-8 pb-6 timeline-item">
+                <div class="bg-white bg-opacity-5 rounded-xl p-5 backdrop-blur-sm border border-white border-opacity-10 card-hover">
+                    <div class="flex justify-between items-start mb-1.5">
                         <h3 class="text-xl font-bold text-white">Career Essentials in Administrative Assistance</h3>
-                        <span class="text-sm bg-accent text-white px-3 py-1 rounded-full">May 2025</span>
+                        <span class="text-sm bg-accent text-white px-3 py-0.5 rounded-full">May 2025</span>
                     </div>
-                    <h4 class="text-accent font-medium mb-4">Microsoft and LinkedIn</h4>
+                    <h4 class="text-accent font-medium mb-3">Microsoft and LinkedIn</h4>
                     
-                    <div class="text-gray-300 mt-4 space-y-4 text-justify">
+                    <div class="text-gray-300 mt-3 space-y-3 text-justify">
                         <p>
                             This certificate provided foundational training in administrative support roles, focusing on essential workplace tools, 
                             communication skills, and organizational systems. It covered calendar and email management, document preparation, 
@@ -1010,9 +1012,31 @@ ve developed transferable skills in problem-solving, communication,
                     </div>
                 </div>
             </div>
+            
+            <!-- Certification Item 2 -->
+            <div class="relative pl-8 timeline-item">
+                <div class="bg-white bg-opacity-5 rounded-xl p-5 backdrop-blur-sm border border-white border-opacity-10 card-hover">
+                    <div class="flex justify-between items-start mb-1.5">
+                        <h3 class="text-xl font-bold text-white">Administrative Professional Foundations</h3>
+                        <span class="text-sm bg-accent text-white px-3 py-0.5 rounded-full">May 2025</span>
+                    </div>
+                    <h4 class="text-accent font-medium mb-3">LinkedIn Learning</h4>
+                    
+                    <div class="text-gray-300 mt-3 space-y-3 text-justify">
+                        <p>
+                            This certificate provided structured training in administrative support functions, emphasizing core competencies in workplace communication, organizational systems, and productivity tools. The coursework included calendar and email management, document preparation, customer service protocols, records organization, and task coordination.
+                        </p>
+                        
+                        <p>
+                            Through this program, I gained practical experience using Microsoft Office and Google Workspace applications, and developed essential soft skills in time management, task prioritization, and schedule coordination. The training also reinforced the importance of professionalism, discretion, and proactive support within dynamic office environments.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
     
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-dark">
@@ -1086,7 +1110,7 @@ ve developed transferable skills in problem-solving, communication,
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-bold text-white mb-1">Location</h4>
-                                    <p class="text-gray-300">Tagum City 8100, Davao del Norte, Philippines</p>
+                                    <p class="text-gray-300">Tagum City, Davao del Norte, Philippines 8100</p>
                                 </div>
                             </div>
                             
@@ -1193,7 +1217,7 @@ ve developed transferable skills in problem-solving, communication,
                 <ul class="space-y-3">
                     <li class="text-gray-400 flex items-start">
                         <i class="fas fa-map-marker-alt text-accent mt-1 mr-3 text-sm"></i>
-                        <span>Tagum City 8100, Davao del Norte, Philippines</span>
+                        <span>Tagum City, Davao del Norte, Philippines 8100</span>
                     </li>
                     <li class="text-gray-400 flex items-start">
                         <i class="fas fa-envelope text-accent mt-1 mr-3 text-sm"></i>
